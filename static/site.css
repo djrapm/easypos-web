@@ -1,0 +1,6 @@
+body { background: #f5f7fb; }
+.hero { background: linear-gradient(120deg, #0d6efd, #4d8cff); color: #fff; }
+.metric { border: 0; box-shadow: 0 .15rem .7rem rgba(0,0,0,.08); }
+.metric h2 { color: #0d6efd; margin: .25rem 0 0; }
+.card { border: 0; box-shadow: 0 .1rem .6rem rgba(0,0,0,.07); }
+.card-header { background: #fff; font-weight: 600; }
