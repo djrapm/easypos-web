@@ -1,0 +1,10 @@
+{% extends 'base.html' %}{% block title %}Inicio | EasyPOS{% endblock %}{% block content %}
+<div class="p-4 mb-4 rounded-3 hero"><h1 class="display-6 fw-bold">Panel principal</h1><p class="mb-0">Control de ventas, compras e inventario desde cualquier navegador.</p></div>
+{% if resumen %}<div class="row g-3 mb-4">
+  <div class="col-md-3"><div class="card metric"><div class="card-body"><small>Productos</small><h2>{{ resumen.productos }}</h2></div></div></div>
+  <div class="col-md-3"><div class="card metric"><div class="card-body"><small>Clientes</small><h2>{{ resumen.clientes }}</h2></div></div></div>
+  <div class="col-md-3"><div class="card metric"><div class="card-body"><small>Ventas hoy</small><h2>{{ resumen.ventas_hoy }}</h2></div></div></div>
+  <div class="col-md-3"><div class="card metric"><div class="card-body"><small>Total vendido hoy</small><h2>{{ resumen.total_hoy|moneda }}</h2></div></div></div>
+</div>{% endif %}
+<div class="card"><div class="card-header fw-bold">Productos que requieren reabastecimiento</div><div class="card-body p-0"><div class="table-responsive"><table class="table mb-0"><thead><tr><th>Producto</th><th>Stock actual</th><th>Mínimo</th></tr></thead><tbody>{% for producto in bajos %}<tr><td>{{ producto.nombre_producto }}</td><td>{{ producto.stock_actual }}</td><td>{{ producto.stock_minimo }}</td></tr>{% else %}<tr><td colspan="3" class="text-center text-muted py-3">No hay alertas de inventario.</td></tr>{% endfor %}</tbody></table></div></div></div>
+{% endblock %}
